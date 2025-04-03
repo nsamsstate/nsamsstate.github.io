@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alumni Connect | NSA @ MSU</title>
+
+  <!-- Bootstrap & Icons -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #6a1b1a, #8e3c3c);
+      color: white;
+    }
+    .navbar, .footer { background-color: maroon; color: white; }
+    .footer a { color: white; }
+    .carousel-item img {
+      object-fit: cover;
+      height: 100vh;
+      width: 100%;
+      opacity: 0.5;
+      filter: brightness(0.8);
+    }
+    .overlay-content {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 80px 30px 60px;
+      backdrop-filter: blur(8px);
+      border-radius: 0 0 25px 25px;
+      position: relative;
+      z-index: 2;
+      color: #212529;
+    }
+    .search-box {
+      margin-bottom: 20px;
+    }
+    .table-striped tbody tr:nth-of-type(odd) {
+      background-color: #f8f9fa;
+    }
+    .table-hover tbody tr:hover {
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+<!-- Carousel Background -->
+<div id="backgroundCarousel" class="carousel slide carousel-fade position-fixed w-100 h-100" data-ride="carousel" data-interval="6000">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/dashain-2023.jpg" class="d-block" alt="MSU campus">
+    </div>
+    <div class="carousel-item">
+      <img src="img/Holi-2023.jpg" class="d-block" alt="NSA event">
+    </div>
+    <div class="carousel-item">
+      <img src="img/nsa_extra.jpg" class="d-block" alt="Nepalese culture">
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<div id="header-placeholder" class="position-relative z-10"></div>
+
+<!-- Content -->
+<main class="flex-fill overlay-content">
+  <section class="container" data-aos="fade-up">
+    <div class="text-center">
+      <h2 class="mb-4">Alumni Connect</h2>
+      <p class="lead">Meet our proud alumni who are thriving in their careers and still supporting NSA in spirit.</p>
+    </div>
+
+    <!-- Search Box -->
+    <div class="search-box">
+      <input type="text" id="search-input" class="form-control" placeholder="Search alumni by name, department, or organization...">
+    </div>
+
+    <!-- Alumni Table -->
+    <div class="table-responsive">
+      <table class="table table-striped table-hover bg-white">
+        <thead class="thead-dark">
+          <tr>
+            <th>Name</th>
+            <th>Department</th>
+            <th>MSU Batch</th>
+            <th>Current Organization</th>
+            <th>Contact</th>
+          </tr>
+        </thead>
+        <tbody id="alumni-table-body"></tbody> 
+      </table>
+    </div>
+
+    <!-- Pagination -->
+    <nav aria-label="Alumni pagination">
+      <ul class="pagination justify-content-center" id="pagination-container"></ul>
+    </nav>
+
+    <div class="mt-4 text-center">
+      <p>If you're an alumnus and want to be listed here, reach out via the <a href="connect.html">Connect</a> page.</p>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<div id="footer-placeholder" class="position-relative z-10"></div>
+
+<!-- Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  let itemsPerPage = 5;
+  let currentPage = 1;
+  let alumniData = [];
+  let filteredData = [];
+
+  async function fetchAlumniData() {
+    const res = await fetch('data/alumni_data.json');
+    alumniData = await res.json();
+    filteredData = alumniData;
+    renderTable();
+    renderPagination();
+  }
+
+  function renderTable() {
+    const tbody = document.getElementById("alumni-table-body");
+    tbody.innerHTML = "";
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+
+    filteredData.slice(start, end).forEach(alum => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${alum.name}</td>
+        <td>${alum.department}</td>
+        <td>${alum.batch}</td>
+        <td>${alum.organization}</td>
+        <td><a href="${alum.contact}" target="_blank">${alum.contactType}</a></td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function renderPagination() {
+    const pagination = document.getElementById("pagination-container");
+    pagination.innerHTML = "";
+    const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+
+    const createPageItem = (page, label = page, isActive = false, isDisabled = false) => {
+      const li = document.createElement("li");
+      li.className = `page-item${isActive ? ' active' : ''}${isDisabled ? ' disabled' : ''}`;
+      const a = document.createElement("a");
+      a.className = "page-link";
+      a.href = "#";
+      a.innerText = label;
+      a.onclick = (e) => {
+        e.preventDefault();
+        if (!isDisabled) {
+          currentPage = page;
+          renderTable();
+          renderPagination();
+        }
+      };
+      li.appendChild(a);
+      return li;
+    };
+
+    pagination.appendChild(createPageItem(currentPage - 1, "Previous", false, currentPage === 1));
+
+    for (let i = 1; i <= totalPages; i++) {
+      pagination.appendChild(createPageItem(i, i, currentPage === i));
+    }
+
+    pagination.appendChild(createPageItem(currentPage + 1, "Next", false, currentPage === totalPages));
+  }
+
+  document.getElementById('search-input').addEventListener('input', function (e) {
+    const query = e.target.value.toLowerCase();
+    filteredData = alumniData.filter(alum =>
+      alum.name.toLowerCase().includes(query) ||
+      alum.department.toLowerCase().includes(query) ||
+      alum.organization.toLowerCase().includes(query)
+    );
+    currentPage = 1;
+    renderTable();
+    renderPagination();
+  });
+
+  $(function () {
+    $("#header-placeholder").load("header.html");
+    $("#footer-placeholder").load("footer.html");
+    $('#backgroundCarousel').carousel({ interval: 6000 });
+  });
+
+  AOS.init();
+  fetchAlumniData();
+</script>
+</body>
+</html>

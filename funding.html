@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Funding | NSA @ MSU</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <style>
+    body {
+      background: linear-gradient(to right, #f3ec78, #af4261);
+    }
+    .navbar, .footer {
+      background-color: maroon;
+      color: white;
+    }
+    .footer a {
+      color: white;
+    }
+    .section-card {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+      margin-bottom: 2rem;
+    }
+    .progress-bar {
+      font-weight: bold;
+    }
+    .animated-text {
+      font-size: 1.2rem;
+      font-weight: bold;
+      background: linear-gradient(270deg, #ff4d4d, #ffa94d, #4dff88, #4dd0ff, #b44dff);
+      background-size: 1000% 1000%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbow-text 10s ease infinite;
+    }
+    @keyframes rainbow-text {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .animated-bonus {
+      animation: bounceIn 1.2s ease, pulseGlow 2.5s infinite ease-in-out;
+      border: 2px dashed #28a745;
+      box-shadow: 0 0 15px rgba(40, 167, 69, 0.3);
+      font-size: 1.1rem;
+      font-weight: 600;
+      background-color: #e7f9ed;
+    }
+    .highlight-amount {
+      color: #28a745;
+      font-size: 1.25rem;
+      animation: blink 1.5s infinite;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 10px rgba(40, 167, 69, 0.5); }
+      50% { box-shadow: 0 0 25px rgba(40, 167, 69, 0.8); }
+    }
+    @keyframes bounceIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      60% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+  </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+<!-- Header -->
+<div id="header-placeholder"></div>
+
+<!-- Background Carousel Banner -->
+<div id="bannerCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/dashain-2023.jpg" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Dashain">
+    </div>
+    <div class="carousel-item">
+      <img src="img/Holi-2023.jpg" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Holi">
+    </div>
+    <div class="carousel-item">
+      <img src="img/nsa_extra.jpg" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="NSA Event">
+    </div>
+  </div>
+</div>
+
+<!-- Main Content -->
+<main class="flex-fill">
+  <section class="container mt-5">
+    <div class="text-center mb-5" data-aos="fade-down">
+      <h2 class="text-white animate__animated animate__fadeIn">Support NSA @ MSU</h2>
+      <p class="lead text-white">Your contribution helps us foster culture, community, and care among Nepalese students at Mississippi State University.</p>
+    </div>
+
+    <!-- Membership Info -->
+    <div class="section-card" data-aos="fade-up">
+      <h4 class="text-primary"><i class="bi bi-people-fill animate__animated animate__pulse animate__infinite"></i> Become a Proud Member of NSA @ MSU</h4>
+      <p class="mt-3">🎓 We warmly welcome all <strong>Nepalese students and families</strong> to become official members of NSA at Mississippi State University.</p>
+      <p>🤝 Your membership contribution helps us organize cultural festivals, support initiatives, and community-building activities.</p>
+      <div class="alert alert-info mt-4">
+        <h5 class="mb-2"><i class="bi bi-cash-coin"></i> Membership Fee Structure</h5>
+        <ul class="mb-0">
+          <li><strong>$15</strong> per individual</li>
+          <li><strong>$10</strong> extra per child/dependent</li>
+        </ul>
+      </div>
+      <div class="card bg-light border-0 shadow-sm mt-4">
+        <div class="card-body">
+          <h5 class="card-title text-success"><i class="bi bi-stars animate__animated animate__tada animate__infinite"></i> 💡 Membership Benefits</h5>
+          <ul class="mb-0">
+            <li>🍛 <strong>Free meals</strong> at all NSA-hosted events</li>
+            <li>📢 <strong>Early access</strong> to NSA updates</li>
+            <li>🎁 <strong>Member-only appreciation gifts</strong></li>
+            <li>🌱 <strong>Help grow</strong> the NSA community</li>
+          </ul>
+        </div>
+      </div>
+      <div class="alert alert-success mt-4 animated-bonus">
+        🎉 <strong>Bonus:</strong> Members who donate more than <strong class="highlight-amount">$100</strong> receive a <strong>special token of appreciation</strong> from NSA!
+      </div>
+    </div>
+
+    <!-- Donation & Registration Side by Side -->
+    <div class="row">
+      <div class="col-md-6" data-aos="zoom-in-left">
+        <div class="section-card h-100">
+          <h4 class="text-danger"><i class="bi bi-credit-card-fill"></i> Ways to Contribute</h4>
+          <ul>
+            <li>💸 <strong>Zelle:</strong> nsamsu@gmail.com</li>
+            <li>🔗 <strong>PayPal:</strong> <a href="#" target="_blank">paypal.me/nsamsu</a></li>
+          </ul>
+          <p class="text-muted">Include your name and "NSA Membership" or "Donation" in the note.</p>
+          <hr>
+          <h5 class="text-warning"><i class="bi bi-piggy-bank-fill"></i> Donation Progress</h5>
+          <p><span id="typed-donation" class="animated-text fw-bold text-primary"></span></p>
+          <div class="progress" style="height: 30px;">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 45%;" aria-valuenow="450" aria-valuemin="0" aria-valuemax="1000">$450 Raised</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6" data-aos="zoom-in-right">
+        <div class="section-card h-100">
+          <h4 class="text-info"><i class="bi bi-file-earmark-text-fill"></i> Membership Registration</h4>
+          <div class="embed-responsive embed-responsive-1by1">
+            <iframe class="embed-responsive-item" src="https://docs.google.com/forms/d/e/1FAIpQLSf4VgKYUXg5JR4_4yC0I6udmIE_1dl1TeeKlsfjiQruYgpivw/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Membership Records -->
+    <div class="section-card" data-aos="fade-right">
+      <h4 class="text-info"><i class="bi bi-people-fill"></i> NSA Membership Records</h4>
+      <p>Here's a transparent view of our current members. Welcome aboard!</p>
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTukPqW2MFNJYgahecsk-XvKwLL1qRT6dpd7lLxYvy-5vqy93FrKLi2nhJGR5qbao1fJYcA9jhX6toH/pubhtml?widget=true&amp;headers=false"></iframe>
+      </div>
+    </div>
+
+    <!-- Funding and Expenses -->
+    <div class="section-card" data-aos="flip-left">
+      <h4 class="text-primary"><i class="bi bi-bar-chart-line-fill"></i> Current NSA Funding & Expenses</h4>
+      <p>Live view of our current financial records:</p>
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR4AAfiN0C7_ejN1glKdHMW5tPeUfHZ23intDHn4Iy8k3Uh2iWWq-4qVrdXGNEg91OGjtClKK-l0tut/pubhtml?widget=true&amp;headers=false"></iframe>
+      </div>
+    </div>
+
+    <!-- YouTube Videos -->
+    <div class="section-card" data-aos="zoom-in-up">
+      <h4 class="text-danger"><i class="bi bi-youtube animate__animated animate__bounce animate__infinite"></i> Videos: Why Support NSA?</h4>
+      <p>Hear from our members and supporters:</p>
+      <div class="embed-responsive embed-responsive-16by9 mb-3">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/YOUR_VIDEO_1_ID" allowfullscreen></iframe>
+      </div>
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/YOUR_VIDEO_2_ID" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<div id="footer-placeholder"></div>
+
+<!-- Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Typed('#typed-donation', {
+      strings: ["We are aiming to raise $1000 to support our upcoming events. Every contribution helps!"],
+      typeSpeed: 45,
+      backSpeed: 30,
+      backDelay: 2000,
+      loop: true,
+      smartBackspace: false,
+      showCursor: true,
+      cursorChar: '|'
+    });
+  });
+  $(function () {
+    $("#header-placeholder").load("header.html");
+    $("#footer-placeholder").load("footer.html");
+  });
+  AOS.init();
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Discussion | NSA @ MSU</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .navbar, .footer { background-color: maroon; color: white; }
+    .footer a { color: white; }
+  </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- Header -->
+  <div id="header-placeholder"></div>
+
+  <!-- Content -->
+  <main class="flex-fill">
+
+    <!-- Discussion Section -->
+    <section class="container mt-5">
+      <div class="text-center">
+        <h2 class="mb-4">Join the Conversation</h2>
+        <p class="lead">Connect with other NSA members, share your experiences, ask questions, and support new students in our discussion forum.</p>
+      </div>
+  
+      <div class="alert alert-warning">
+        <h5 class="font-weight-bold">Community Guidelines</h5>
+        <ul>
+          <li>✅ Keep conversations respectful and inclusive.</li>
+          <li>✅ Use constructive language when offering advice or feedback.</li>
+          <li>❌ No spamming, trolling, or self-promotion.</li>
+          <li>❌ No hate speech, harassment, or discrimination of any kind.</li>
+        </ul>
+        <p class="mb-0">🛡️ This forum is actively moderated by NSA committee members. Repeated violations will result in removal and being banned from the platform.</p>
+        <p>🙋 If you notice inappropriate behavior, please report it via our <a href="connect.html">Connect With Us</a> form.</p>
+      </div>
+
+      <div class="mt-4">
+        <div id="disqus_thread"></div>
+        <script>
+          var disqus_config = function () {
+            this.page.url = window.location.href;
+            this.page.identifier = 'nsa_discussion';
+          };
+          (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://nsamsstate.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+
+      <!-- <div class="alert alert-info mt-5" role="alert">
+        <strong>Want a private discussion board?</strong> Join our WhatsApp or GroupMe – reach out to any NSA committee member.
+      </div> -->
+    </section>
+  </main>
+
+<!-- Footer -->
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+<!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  $(function () {
+    // Load reusable header and footer
+    $("#header-placeholder").load("header.html");
+    $("#footer-placeholder").load("footer.html");
+  });
+</script>
+</body>
+</html>

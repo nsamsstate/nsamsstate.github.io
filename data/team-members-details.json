@@ -1,0 +1,27 @@
+[
+    {
+      "profile_image_path": "img/team-images/saphal-upreti.jpeg",
+      "Name": "Saphal Upreti",
+      "Position": "President",
+      "LinkedInURL": "https://www.linkedin.com/in/saphal33/"
+    },
+    {
+      "profile_image_path": "img/team-images/bikal-ghimire.jpg",
+      "Name": "Bikal Ghimire",
+      "Position": "Vice-President",
+      "LinkedInURL": "https://www.linkedin.com/in/bikal-ghimire-239b112a5/"
+    },
+    {
+      "profile_image_path": "img/team-images/adarsha-lamichanne.jpeg",
+      "Name": "Aadarsha Lamichanne",
+      "Position": "Secretary",
+      "LinkedInURL": "https://www.linkedin.com/in/aadarsha-lamichhane-1819042ab/"
+    },
+    {
+      "profile_image_path": "img/team-images/simran-pandey.jpeg",
+      "Name": "Simran Pandey",
+      "Position": "Grad Representative",
+      "LinkedInURL": "https://www.linkedin.com/in/simran-pandey-121ab41b9/"
+    }
+  ]
+  

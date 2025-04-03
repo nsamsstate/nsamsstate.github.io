@@ -1,0 +1,84 @@
+[
+
+  {
+    "name": "Suman Adhikari",
+    "department": "MS In Computer Science",
+    "batch": "Fall 2021",
+    "organization": "Program Manager @ Microsoft",
+    "contact": "https://www.linkedin.com/in/suman-adhikari-77798b119/",
+    "contactType": "LinkedIn"
+  },
+  {
+    "name": "Surya Adhikari",
+    "department": "MS In Forestry",
+    "batch": "Fall 2021",
+    "organization": "Senior Carbon Analyst @ NativState",
+    "contact": "https://www.linkedin.com/in/adsurya/",
+    "contactType": "LinkedIn"
+  },
+  {
+    "name": "Dipesh Shrestha",
+    "department": "Computer Science",
+    "batch": "Fall 2018",
+    "organization": "Google",
+    "contact": "https://linkedin.com/in/dipesh",
+    "contactType": "LinkedIn"
+  },
+  {
+    "name": "Rina Lama",
+    "department": "Data Science",
+    "batch": "Spring 2019",
+    "organization": "Deloitte",
+    "contact": "mailto:rinalama@email.com",
+    "contactType": "Email"
+  },
+  {
+    "name": "Aayush Karki",
+    "department": "Civil Engineering",
+    "batch": "Fall 2017",
+    "organization": "Bechtel",
+    "contact": "mailto:aayush@email.com",
+    "contactType": "Email"
+  },
+  {
+    "name": "Pratik Shrestha",
+    "department": "Computer Engineering",
+    "batch": "Spring 2018",
+    "organization": "Apple",
+    "contact": "mailto:pratik@email.com",
+    "contactType": "Email"
+  },
+  {
+    "name": "Bina Shahi",
+    "department": "Electrical Engineering",
+    "batch": "Spring 2019",
+    "organization": "Intel",
+    "contact": "mailto:bina@email.com",
+    "contactType": "Email"
+  },
+  {
+    "name": "Rajiv Manandhar",
+    "department": "Software Engineering",
+    "batch": "Fall 2021",
+    "organization": "Meta",
+    "contact": "https://linkedin.com/in/rajiv",
+    "contactType": "LinkedIn"
+  },
+  {
+    "name": "Sunita KC",
+    "department": "Business Analytics",
+    "batch": "Fall 2022",
+    "organization": "Amazon",
+    "contact": "mailto:sunita@email.com",
+    "contactType": "Email"
+  },
+  {
+    "name": "",
+    "department": "",
+    "batch": "",
+    "organization": "",
+    "contact": "",
+    "contactType": ""
+  }
+  
+]
