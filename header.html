@@ -1,8 +1,36 @@
+<style>
+  .nsa-logo {
+    width: 34px;
+    height: 34px;
+    object-fit: cover;
+    border-radius: 65%;
+    border: 2px solid white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    margin-right: 10px;
+  }
+
+  .nsa-brand-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffeb99;
+    line-height: 1.1;
+  }
+
+  .nsa-brand-subtitle {
+    font-size: 0.8rem;
+    color: #ffd6d6;
+    line-height: 1.1;
+  }
+</style>
+
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: maroon;">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center" href="index.html">
-      <img src="img/nsa-logo.jpeg" alt="NSA Logo" width="40" height="40" >
-      <span class="font-weight-bold text-white"> &nbsp;&nbsp;NSA @ MSU</span>
+      <img src="img/nsa-logo.jpeg" alt="NSA Logo" class="nsa-logo">
+      <div class="d-flex flex-column lh-sm">
+        <span class="nsa-brand-title">Nepalese Student Association</span>
+        <small class="nsa-brand-subtitle">Mississippi State University</small>
+      </div>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
@@ -10,7 +38,6 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item px-2"><a class="nav-link text-white" href="index.html">Home</a></li>
-        <!-- <li class="nav-item px-2"><a class="nav-link text-white" href="announcement.html">Announcements</a></li> -->
         <li class="nav-item px-2"><a class="nav-link text-white" href="funding.html">Funding</a></li>
         <li class="nav-item px-2"><a class="nav-link text-white" href="discussion.html">Discussion</a></li>
         <li class="nav-item px-2"><a class="nav-link text-white" href="more-info.html">More Info</a></li>
