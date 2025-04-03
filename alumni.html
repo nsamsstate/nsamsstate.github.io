@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="root">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,61 +9,93 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <style>
+    :root {
+      --bg-light: linear-gradient(to right, #6a1b1a, #8e3c3c);
+      --bg-dark: linear-gradient(to right, #121212, #2c2c2c);
+      --text-light: #fff;
+      --text-dark: #eee;
+    }
+
     body {
-      background: linear-gradient(to right, #6a1b1a, #8e3c3c);
+      background: var(--bg-light);
+      color: var(--text-light);
+      min-height: 100vh;
+    }
+
+    .dark-mode body {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    .navbar, .footer {
+      background-color: maroon;
       color: white;
     }
-    .navbar, .footer { background-color: maroon; color: white; }
-    .footer a { color: white; }
-    .carousel-item img {
-      object-fit: cover;
-      height: 100vh;
-      width: 100%;
-      opacity: 0.5;
-      filter: brightness(0.8);
+
+    .footer a {
+      color: white;
     }
+
     .overlay-content {
-      background-color: rgba(255, 255, 255, 0.9);
       padding: 80px 30px 60px;
-      backdrop-filter: blur(8px);
-      border-radius: 0 0 25px 25px;
-      position: relative;
-      z-index: 2;
-      color: #212529;
     }
+
     .search-box {
       margin-bottom: 20px;
     }
-    .table-striped tbody tr:nth-of-type(odd) {
-      background-color: #f8f9fa;
+
+    .table td, .table th {
+      color: #fff;
     }
+
+    .thead-custom th {
+      background: linear-gradient(90deg, #7b1e1e, #ab4646);
+      color: gold;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
     .table-hover tbody tr:hover {
-      background-color: #eee;
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .btn-dark-toggle {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      display: none;
+      z-index: 9999;
+      transition: opacity 0.4s ease;
+    }
+
+    .dark-mode .table td,
+    .dark-mode .table th {
+      color: #eee;
+    }
+
+    .dark-mode .table-hover tbody tr:hover {
+      background-color: rgba(255, 255, 255, 0.08);
     }
   </style>
 </head>
+
 <body class="d-flex flex-column min-vh-100">
 
-<!-- Carousel Background -->
-<div id="backgroundCarousel" class="carousel slide carousel-fade position-fixed w-100 h-100" data-ride="carousel" data-interval="6000">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="img/dashain-2023.jpg" class="d-block" alt="MSU campus">
-    </div>
-    <div class="carousel-item">
-      <img src="img/Holi-2023.jpg" class="d-block" alt="NSA event">
-    </div>
-    <div class="carousel-item">
-      <img src="img/nsa_extra.jpg" class="d-block" alt="Nepalese culture">
-    </div>
-  </div>
-</div>
+<!-- 🌙 Dark Mode Toggle Button -->
+<button class="btn btn-outline-light btn-sm btn-dark-toggle" id="dark-toggle-btn" onclick="toggleDarkMode()">
+  <i class="bi bi-moon-stars-fill"></i> Toggle Dark Mode
+</button>
 
-<!-- Header -->
-<div id="header-placeholder" class="position-relative z-10"></div>
+<!-- 🔗 Header -->
+<div id="header-placeholder"></div>
 
-<!-- Content -->
+<!-- ✨ Content -->
 <main class="flex-fill overlay-content">
   <section class="container" data-aos="fade-up">
     <div class="text-center">
@@ -71,15 +103,15 @@
       <p class="lead">Meet our proud alumni who are thriving in their careers and still supporting NSA in spirit.</p>
     </div>
 
-    <!-- Search Box -->
+    <!-- 🔍 Search -->
     <div class="search-box">
       <input type="text" id="search-input" class="form-control" placeholder="Search alumni by name, department, or organization...">
     </div>
 
-    <!-- Alumni Table -->
+    <!-- 🧑‍🎓 Alumni Table -->
     <div class="table-responsive">
-      <table class="table table-striped table-hover bg-white">
-        <thead class="thead-dark">
+      <table class="table table-striped table-hover">
+        <thead class="thead-custom">
           <tr>
             <th>Name</th>
             <th>Department</th>
@@ -88,11 +120,11 @@
             <th>Contact</th>
           </tr>
         </thead>
-        <tbody id="alumni-table-body"></tbody> 
+        <tbody id="alumni-table-body"></tbody>
       </table>
     </div>
 
-    <!-- Pagination -->
+    <!-- 📄 Pagination -->
     <nav aria-label="Alumni pagination">
       <ul class="pagination justify-content-center" id="pagination-container"></ul>
     </nav>
@@ -103,10 +135,10 @@
   </section>
 </main>
 
-<!-- Footer -->
+<!-- 🔚 Footer -->
 <div id="footer-placeholder" class="position-relative z-10"></div>
 
-<!-- Scripts -->
+<!-- 🧠 Scripts -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -168,14 +200,13 @@
     };
 
     pagination.appendChild(createPageItem(currentPage - 1, "Previous", false, currentPage === 1));
-
     for (let i = 1; i <= totalPages; i++) {
       pagination.appendChild(createPageItem(i, i, currentPage === i));
     }
-
     pagination.appendChild(createPageItem(currentPage + 1, "Next", false, currentPage === totalPages));
   }
 
+  // 🔍 Search functionality
   document.getElementById('search-input').addEventListener('input', function (e) {
     const query = e.target.value.toLowerCase();
     filteredData = alumniData.filter(alum =>
@@ -188,10 +219,28 @@
     renderPagination();
   });
 
+  // 🌗 Dark mode toggle
+  function toggleDarkMode() {
+    document.getElementById("root").classList.toggle('dark-mode');
+  }
+
+  // 🎯 Show dark toggle only when scrolling up
+  let lastScrollTop = 0;
+  const toggleBtn = document.getElementById('dark-toggle-btn');
+  window.addEventListener("scroll", function () {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    if (currentScroll < lastScrollTop) {
+      toggleBtn.style.display = "block";
+    } else {
+      toggleBtn.style.display = "none";
+    }
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  }, false);
+
+  // Load header/footer + AOS + fetch alumni
   $(function () {
     $("#header-placeholder").load("header.html");
     $("#footer-placeholder").load("footer.html");
-    $('#backgroundCarousel').carousel({ interval: 6000 });
   });
 
   AOS.init();
