@@ -213,10 +213,12 @@ function renderPagination() {
 document.getElementById("search-input").addEventListener("input", () => {
   const query = document.getElementById("search-input").value.toLowerCase();
   filteredData = alumniData.filter(a =>
-    a.name.toLowerCase().includes(query) ||
-    a.department.toLowerCase().includes(query) ||
-    a.organization.toLowerCase().includes(query)
-  );
+  a.name.toLowerCase().includes(query) ||
+  a.department.toLowerCase().includes(query) ||
+  a.organization.toLowerCase().includes(query) ||
+  a.batch.toLowerCase().includes(query)
+);
+
   currentPage = 1;
   renderTable();
   renderPagination();
