@@ -37,6 +37,14 @@
         <p>🙋 If you notice inappropriate behavior, please report it via our <a href="connect.html">Connect With Us</a> form.</p>
       </div>
 
+      <!-- First Time Disqus Info -->
+      <div class="alert alert-info" role="alert">
+        <h5 class="font-weight-bold">💬 First Time Here?</h5>
+        <p>Getting started is easy! If you're the first to comment, just sign in with your <strong>Google, Facebook, or Disqus account</strong> — no setup needed. Once signed in, you're ready to post and join the discussion right away!</p>
+        <p>🌐 Your voice matters — share your thoughts, ask questions, or cheer for your fellow NSA members!</p>
+      </div>
+
+      <!-- Disqus Thread -->
       <div class="mt-4">
         <div id="disqus_thread"></div>
         <script>
@@ -51,28 +59,25 @@
             (d.head || d.body).appendChild(s);
           })();
         </script>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <noscript>Please enable JavaScript to view the 
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
       </div>
 
-      <!-- <div class="alert alert-info mt-5" role="alert">
-        <strong>Want a private discussion board?</strong> Join our WhatsApp or GroupMe – reach out to any NSA committee member.
-      </div> -->
     </section>
   </main>
 
-<!-- Footer -->
-    <!-- Footer Placeholder -->
-    <div id="footer-placeholder"></div>
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
 
-<!-- Scripts -->
+  <!-- Scripts -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script>
-  $(function () {
-    // Load reusable header and footer
-    $("#header-placeholder").load("header.html");
-    $("#footer-placeholder").load("footer.html");
-  });
-</script>
+  <script>
+    $(function () {
+      $("#header-placeholder").load("header.html");
+      $("#footer-placeholder").load("footer.html");
+    });
+  </script>
 </body>
 </html>
