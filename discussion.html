@@ -1,13 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Discussion | NSA @ MSU</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
   <style>
-    .navbar, .footer { background-color: maroon; color: white; }
-    .footer a { color: white; }
+    body {
+      background-color: white;
+      color: black;
+    }
+
+    .navbar, .footer {
+      background-color: maroon !important;
+      color: white;
+    }
+
+    .footer a {
+      color: white;
+    }
+
+    .discussion-bg {
+      background: linear-gradient(-45deg, #ffdddd, #fff0f5, #e0ffff, #fefbd8);
+      background-size: 400% 400%;
+      animation: gradientFlow 15s ease infinite;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .fab-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+      font-size: 1.5rem;
+      padding: 0.75rem 1rem;
+      border-radius: 50%;
+    }
   </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
@@ -15,16 +51,15 @@
   <!-- Header -->
   <div id="header-placeholder"></div>
 
-  <!-- Content -->
+  <!-- Main Content -->
   <main class="flex-fill">
-
-    <!-- Discussion Section -->
-    <section class="container mt-5">
+    <section class="container mt-5 discussion-bg">
       <div class="text-center">
         <h2 class="mb-4">Join the Conversation</h2>
         <p class="lead">Connect with other NSA members, share your experiences, ask questions, and support new students in our discussion forum.</p>
       </div>
-  
+
+      <!-- Guidelines -->
       <div class="alert alert-warning">
         <h5 class="font-weight-bold">Community Guidelines</h5>
         <ul>
@@ -37,38 +72,38 @@
         <p>🙋 If you notice inappropriate behavior, please report it via our <a href="connect.html">Connect With Us</a> form.</p>
       </div>
 
-      <!-- First Time Disqus Info -->
+      <!-- First Time Info -->
       <div class="alert alert-info" role="alert">
         <h5 class="font-weight-bold">💬 First Time Here?</h5>
-        <p>Getting started is easy! If you're the first to comment, just sign in with your <strong>Google, Facebook, or Disqus account</strong> — no setup needed. Once signed in, you're ready to post and join the discussion right away!</p>
+        <p>Getting started is easy! Sign in with your <strong>Google, Facebook, or Disqus account</strong> — no setup needed. Once signed in, you're ready to post and join the discussion right away!</p>
         <p>🌐 Your voice matters — share your thoughts, ask questions, or cheer for your fellow NSA members!</p>
       </div>
 
       <!-- Disqus Thread -->
-      <div class="mt-4">
-        <div id="disqus_thread"></div>
-        <script>
-          var disqus_config = function () {
-            this.page.url = window.location.href;
-            this.page.identifier = 'nsa_discussion';
-          };
-          (function() {
-            var d = document, s = d.createElement('script');
-            s.src = 'https://nsamsstate.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-          })();
-        </script>
-        <noscript>Please enable JavaScript to view the 
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-
+      <div class="mt-4" id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          this.page.url = window.location.href;
+          this.page.identifier = 'nsa_discussion';
+        };
+        (function () {
+          var d = document, s = d.createElement('script');
+          s.src = 'https://nsamsstate.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the 
+        <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+      </noscript>
     </section>
   </main>
 
   <!-- Footer -->
   <div id="footer-placeholder"></div>
+
+  <!-- Floating Action Button -->
+  <a href="#disqus_thread" class="btn btn-danger fab-button" title="Go to Discussion">💬</a>
 
   <!-- Scripts -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
