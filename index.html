@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nepalese Student Association | MSU</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <!-- Bootstrap & Icons -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
   <style>
     body {
       background: linear-gradient(to right, #6a1b1a, #8e3c3c, #6a1b1a);
@@ -17,18 +20,60 @@
     .navbar, .footer { background-color: maroon; color: white; }
     .navbar a, .footer a { color: white !important; }
     .carousel-inner img { width: 100%; height: 500px; object-fit: cover; }
-    .rounded-circle { width: 150px; height: 150px; object-fit: cover; transition: transform 0.4s ease-in-out; border: 3px solid white; }
+    .rounded-circle {
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      transition: transform 0.4s ease-in-out;
+      border: 4px solid white;
+      margin-bottom: 10px;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    }
     .rounded-circle:hover { transform: scale(1.1); }
-    .team-scroll { overflow-x: auto; white-space: nowrap; }
-    .team-member { display: inline-block; margin: 10px; text-align: center; animation: fadeInUp 1s ease-in-out both; color: #000; background-color: #ffffffcc; padding: 10px; border-radius: 10px; }
+    .team-scroll {
+      overflow-x: auto;
+      white-space: nowrap;
+      padding-bottom: 10px;
+    }
+    .team-member {
+      display: inline-block;
+      width: 220px;
+      height: 320px;
+      margin: 10px;
+      text-align: center;
+      background: linear-gradient(135deg, #fff5f5, #ffe6e6);
+      border-radius: 20px;
+      padding: 15px;
+      color: #2c2c2c;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: all 0.4s ease;
+      animation: fadeInUp 1s ease-in-out both;
+    }
+    .team-member:hover {
+      transform: scale(1.07);
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    }
+    .team-member strong {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-top: 5px;
+      color: #333;
+    }
+    .team-member a {
+      color: #006699;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .team-member a:hover {
+      color: #004466;
+      text-decoration: underline;
+    }
     .section-heading {
       font-size: 2rem;
       font-weight: bold;
       margin-bottom: 1rem;
-    }
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
     }
     #typed-welcome {
       font-size: 1.5rem;
@@ -36,172 +81,116 @@
       color: blanchedalmond;
       text-align: center;
     }
-    .team-scroll {
-  overflow-x: auto;
-  white-space: nowrap;
-  padding-bottom: 10px;
-}
-
-.team-member {
-  display: inline-block;
-  width: 220px;
-  height: 320px;
-  margin: 10px;
-  text-align: center;
-  background: linear-gradient(135deg, #fff5f5, #ffe6e6);
-  border-radius: 20px;
-  padding: 15px;
-  color: #2c2c2c;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  transition: all 0.4s ease;
-  animation: fadeInUp 1s ease-in-out both;
-}
-
-.team-member:hover {
-  transform: scale(1.07);
-  background: linear-gradient(135deg, #ffdde1, #ee9ca7); /* rose pink */
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-}
-
-
-.team-member img {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid white;
-  margin-bottom: 10px;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
-}
-
-.team-member strong {
-  display: block;
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-top: 5px;
-  color: #333;
-}
-
-.team-member a {
-  color: #006699;
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.team-member a:hover {
-  color: #004466;
-  text-decoration: underline;
-}
-
-
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
 
-<!-- Navbar -->
-<div id="header-placeholder"></div>
+  <!-- Navbar -->
+  <div id="header-placeholder"></div>
 
-<!-- Content -->
-<main class="flex-fill">
-  <!-- Carousel -->
-  <div id="nsaCarousel" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active"><img src="img/dashain-2024.jpg" class="d-block w-100" alt="NSA Image 1"></div>
-      <div class="carousel-item"><img src="img/Holi-2023.jpg" class="d-block w-100" alt="NSA Image 2"></div>
-      <div class="carousel-item"><img src="img/nsa_extra.jpg" class="d-block w-100" alt="NSA Image 3"></div>
-      <div class="carousel-item"><img src="img/dashain-2023.jpg" class="d-block w-100" alt="NSA Image 4"></div>
-    </div>
-  </div>
-
-  <!-- Animated Welcome Text -->
-  <div class="container my-5" data-aos="fade-up">
-    <div id="typed-welcome"></div>
-  </div>
-
-  <!-- About NSA -->
-  <section class="container mt-5" data-aos="fade-up">
-    <div class="text-center">
-      <h2 class="section-heading animate__animated animate__fadeIn">About NSA</h2>
-      <p class="lead">The Nepalese Student Association (NSA) at Mississippi State University is a student-run organization dedicated to fostering a sense of community among Nepalese students, celebrating Nepalese culture, and helping new students transition into academic and social life at MSU. We aim to create a home away from home by organizing social, cultural, and academic events throughout the year. NSA also serves as a helpful guide for incoming students with housing, travel, and academic resources.</p>
-    </div>
-  </section>
-
-  <!-- Current Team -->
-  <section class="container mt-5 py-4" style="background: rgba(255,255,255,0.05); border-radius: 20px;" data-aos="zoom-in">
-    <h2 class="text-center mb-4 section-heading animate__animated animate__pulse animate__infinite">Current Team</h2>
-    <div class="team-scroll text-center pb-3" id="team-container">
-        <!-- Team cards will be injected here -->
-    </div>
-  </section>
-
-  <!-- Upcoming Events -->
-  <section class="container mt-5" data-aos="fade-up">
-    <h2 class="text-center mb-4 section-heading animate__animated animate__fadeIn">Upcoming Events</h2>
-    <div class="card shadow-sm mb-3">
-      <div class="card-body bg-white text-dark">
-        
-        <div class="text-center mt-3">
-          <iframe src="https://calendar.google.com/calendar/embed?src=NGMxNGRmOThlM2ZjNWRkMzRiODJiOTQxZmUzODAyZjJjY2VhNjY4OWU3ZWUyNWUxMDFiNGZhZTMxZmIyNTdiMUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&ctz=America%2FChicago" 
-            style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
-        </div>
-        <p>See the full calender events <a href="https://calendar.google.com/calendar/u/7?cid=NGMxNGRmOThlM2ZjNWRkMzRiODJiOTQxZmUzODAyZjJjY2VhNjY4OWU3ZWUyNWUxMDFiNGZhZTMxZmIyNTdiMUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t">here.</a></p>
+  <!-- Content -->
+  <main class="flex-fill">
+    <!-- Carousel -->
+    <div id="nsaCarousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active"><img src="img/dashain-2024.jpg" class="d-block w-100" alt="NSA Image 1"></div>
+        <div class="carousel-item"><img src="img/Holi-2023.jpg" class="d-block w-100" alt="NSA Image 2"></div>
+        <div class="carousel-item"><img src="img/nsa_extra.jpg" class="d-block w-100" alt="NSA Image 3"></div>
+        <div class="carousel-item"><img src="img/dashain-2023.jpg" class="d-block w-100" alt="NSA Image 4"></div>
       </div>
     </div>
-  </section>
-</main>
 
-<!-- Footer -->
-<div id="footer-placeholder"></div>
+    <!-- Typed Welcome -->
+    <div class="container my-5" data-aos="fade-up">
+      <div id="typed-welcome"></div>
+    </div>
 
-<!-- Scripts -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  $(function () {
-    $("#header-placeholder").load("header.html");
-    $("#footer-placeholder").load("footer.html");
-    $('.carousel').carousel({ interval: 3000 });
-  });
+    <!-- About Section -->
+    <section class="container mt-5" data-aos="fade-up">
+      <div class="text-center">
+        <h2 class="section-heading animate__animated animate__fadeIn">About NSA</h2>
+        <p class="lead">The Nepalese Student Association (NSA) at Mississippi State University is a student-run organization dedicated to fostering a sense of community among Nepalese students, celebrating Nepalese culture, and helping new students transition into academic and social life at MSU. We aim to create a home away from home by organizing social, cultural, and academic events throughout the year. NSA also serves as a helpful guide for incoming students with housing, travel, and academic resources.</p>
+      </div>
+    </section>
 
-  AOS.init();
+    <!-- Current Team -->
+    <section class="container mt-5 py-4" style="background: rgba(255,255,255,0.05); border-radius: 20px;" data-aos="zoom-in">
+      <h2 class="text-center mb-4 section-heading animate__animated animate__pulse animate__infinite">Current Team</h2>
+      <div class="team-scroll text-center pb-3" id="team-container">
+        <!-- Team members will be injected here via JS -->
+      </div>
+    </section>
 
-  document.addEventListener("DOMContentLoaded", function () {
-    new Typed('#typed-welcome', {
-      strings: [
-        "Welcome To The Nepalese Student Association @ MSU!",
-        "Celebration Culture. Supporting Community. Building Future Leaders."
-      ],
-      typeSpeed: 45,
-      backSpeed: 25,
-      backDelay: 1500,
-      loop: true,
-      showCursor: true,
-      cursorChar: '|'
+    <!-- Events Section -->
+    <section class="container mt-5" data-aos="fade-up">
+      <h2 class="text-center mb-4 section-heading animate__animated animate__fadeIn">Upcoming Events</h2>
+      <div class="card shadow-sm mb-3">
+        <div class="card-body bg-white text-dark">
+          <div class="text-center mt-3">
+            <iframe src="https://calendar.google.com/calendar/embed?src=NGMxNGRmOThlM2ZjNWRkMzRiODJiOTQxZmUzODAyZjJjY2VhNjY4OWU3ZWUyNWUxMDFiNGZhZTMxZmIyNTdiMUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&ctz=America%2FChicago" 
+              style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+          </div>
+          <p>See the full calendar events <a href="https://calendar.google.com/calendar/u/7?cid=NGMxNGRmOThlM2ZjNWRkMzRiODJiOTQxZmUzODAyZjJjY2VhNjY4OWU3ZWUyNWUxMDFiNGZhZTMxZmIyNTdiMUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t" target="_blank">here.</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    $(function () {
+      $("#header-placeholder").load("header.html");
+      $("#footer-placeholder").load("footer.html");
+      $('.carousel').carousel({ interval: 3000 });
     });
-  });
- 
-  // Load team members from JSON file
-  fetch('data/team-members-details.json')
-    .then(response => response.json())
-    .then(data => {
-      const container = document.getElementById('team-container');
-      data.forEach(member => {
-        const div = document.createElement('div');
-        div.className = 'team-member';
-        div.innerHTML = `
-          <img src="${member.profile_image_path}" class="rounded-circle shadow mb-2"><br>
-          <strong>${member.Name}</strong><br>
-          ${member.Position}<br>
-          <a href="${member.LinkedInURL}" target="_blank">LinkedIn</a>
-        `;
-        container.appendChild(div);
+
+    AOS.init();
+
+    document.addEventListener("DOMContentLoaded", function () {
+      new Typed('#typed-welcome', {
+        strings: [
+          "Welcome To The Nepalese Student Association @ MSU!",
+          "Celebrating Culture. Supporting Community. Building Future Leaders."
+        ],
+        typeSpeed: 45,
+        backSpeed: 25,
+        backDelay: 1500,
+        loop: true,
+        showCursor: true,
+        cursorChar: '|'
       });
-    })
-    .catch(error => console.error("Error loading team members:", error));
 
+      // Load Team JSON
+      fetch('data/team-members-details.json')
+        .then(res => res.json())
+        .then(data => {
+          const container = document.getElementById('team-container');
+          data.forEach(member => {
+            const div = document.createElement('div');
+            div.className = 'team-member';
+            div.innerHTML = `
+            <img src="${member.profile_image_path}" class="rounded-circle shadow mb-2"><br>
+            <strong>${member.Name}</strong><br>
+            ${member.Position}<br>
+            ${member.LinkedInURL ? `<a href="${member.LinkedInURL}" target="_blank">LinkedIn</a>` : 'LinkedIn'}
+            `;
 
-</script>
+            container.appendChild(div);
+          });
+        })
+        .catch(err => console.error("Failed to load team data:", err));
+    });
+  </script>
 </body>
 </html>
