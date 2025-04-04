@@ -16,6 +16,8 @@
       --bg-dark: linear-gradient(to right, #121212, #2c2c2c);
       --text-light: #fff;
       --text-dark: #eee;
+      --btn-light: #f1f1f1;
+      --btn-dark: #212121;
     }
 
     body {
@@ -24,7 +26,7 @@
       min-height: 100vh;
     }
 
-    .dark-mode body {
+    #root.dark-mode body {
       background: var(--bg-dark);
       color: var(--text-dark);
     }
@@ -67,19 +69,37 @@
 
     .btn-dark-toggle {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
-      display: none;
+      bottom: 25px;
+      right: 25px;
       z-index: 9999;
-      transition: opacity 0.4s ease;
+      transition: all 0.3s ease;
+      background-color: var(--btn-light);
+      color: #212121;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 50px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
-    .dark-mode .table td,
-    .dark-mode .table th {
+    #root.dark-mode .btn-dark-toggle {
+      background-color: var(--btn-dark);
+      color: #f1f1f1;
+    }
+
+    .btn-dark-toggle i {
+      transition: transform 0.4s ease;
+    }
+
+    .btn-dark-toggle:hover i {
+      transform: rotate(20deg) scale(1.1);
+    }
+
+    #root.dark-mode .table td,
+    #root.dark-mode .table th {
       color: #eee;
     }
 
-    .dark-mode .table-hover tbody tr:hover {
+    #root.dark-mode .table-hover tbody tr:hover {
       background-color: rgba(255, 255, 255, 0.08);
     }
   </style>
@@ -87,9 +107,9 @@
 
 <body class="d-flex flex-column min-vh-100">
 
-<!-- 🌙 Dark Mode Toggle Button -->
-<button class="btn btn-outline-light btn-sm btn-dark-toggle" id="dark-toggle-btn" onclick="toggleDarkMode()">
-  <i class="bi bi-moon-stars-fill"></i> Toggle Dark Mode
+<!-- 🌗 Dark Mode Toggle Button -->
+<button class="btn btn-dark-toggle" id="dark-toggle-btn" onclick="toggleDarkMode()">
+  <i class="bi bi-moon-stars-fill"></i>
 </button>
 
 <!-- 🔗 Header -->
@@ -221,23 +241,20 @@
 
   // 🌗 Dark mode toggle
   function toggleDarkMode() {
-    document.getElementById("root").classList.toggle('dark-mode');
+    const root = document.getElementById("root");
+    root.classList.toggle('dark-mode');
+
+    const icon = document.querySelector("#dark-toggle-btn i");
+    if (root.classList.contains('dark-mode')) {
+      icon.classList.remove("bi-moon-stars-fill");
+      icon.classList.add("bi-sun-fill");
+    } else {
+      icon.classList.remove("bi-sun-fill");
+      icon.classList.add("bi-moon-stars-fill");
+    }
   }
 
-  // 🎯 Show dark toggle only when scrolling up
-  let lastScrollTop = 0;
-  const toggleBtn = document.getElementById('dark-toggle-btn');
-  window.addEventListener("scroll", function () {
-    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-    if (currentScroll < lastScrollTop) {
-      toggleBtn.style.display = "block";
-    } else {
-      toggleBtn.style.display = "none";
-    }
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-  }, false);
-
-  // Load header/footer + AOS + fetch alumni
+  // Initialize
   $(function () {
     $("#header-placeholder").load("header.html");
     $("#footer-placeholder").load("footer.html");
