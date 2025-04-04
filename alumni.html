@@ -6,29 +6,37 @@
   <title>Alumni Connect | NSA @ MSU</title>
 
   <!-- Bootstrap & Icons -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
 
   <style>
     :root {
       --bg-light: linear-gradient(to right, #6a1b1a, #8e3c3c);
       --bg-dark: linear-gradient(to right, #121212, #2c2c2c);
-      --text-light: #fff;
-      --text-dark: #eee;
-      --btn-light: #f1f1f1;
-      --btn-dark: #212121;
+      --bg-hacker: #000000;
+      --bg-blossom: linear-gradient(to right, #ffdce0, #ff8fb1);
     }
 
     body {
       background: var(--bg-light);
-      color: var(--text-light);
+      color: white;
       min-height: 100vh;
+      transition: all 0.3s ease;
     }
 
-    #root.dark-mode body {
+    .dark-mode body {
       background: var(--bg-dark);
-      color: var(--text-dark);
+      color: #eee;
+    }
+
+    .hacker-mode body {
+      background: var(--bg-hacker);
+      color: #00ff00;
+    }
+
+    .blossom-mode body {
+      background: var(--bg-blossom);
+      color: #222;
     }
 
     .navbar, .footer {
@@ -36,99 +44,76 @@
       color: white;
     }
 
-    .footer a {
-      color: white;
-    }
-
-    .overlay-content {
-      padding: 80px 30px 60px;
-    }
-
-    .search-box {
-      margin-bottom: 20px;
-    }
-
-    .table td, .table th {
-      color: #fff;
-    }
-
     .thead-custom th {
       background: linear-gradient(90deg, #7b1e1e, #ab4646);
       color: gold;
-      font-weight: bold;
       text-align: center;
     }
 
-    .table-striped tbody tr:nth-of-type(odd) {
-      background-color: rgba(255, 255, 255, 0.08);
+    .table td, .table th {
+      color: white;
     }
 
-    .table-hover tbody tr:hover {
-      background-color: rgba(255, 255, 255, 0.15);
+    .highlight {
+      background-color: #ffe066;
+      font-weight: bold;
+      padding: 2px 4px;
+      border-radius: 4px;
     }
 
-    .btn-dark-toggle {
+    .toast-msg {
       position: fixed;
-      bottom: 25px;
-      right: 25px;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.8);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
       z-index: 9999;
-      transition: all 0.3s ease;
-      background-color: var(--btn-light);
-      color: #212121;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 50px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      display: none;
     }
 
-    #root.dark-mode .btn-dark-toggle {
-      background-color: var(--btn-dark);
-      color: #f1f1f1;
-    }
-
-    .btn-dark-toggle i {
-      transition: transform 0.4s ease;
-    }
-
-    .btn-dark-toggle:hover i {
-      transform: rotate(20deg) scale(1.1);
-    }
-
-    #root.dark-mode .table td,
-    #root.dark-mode .table th {
-      color: #eee;
-    }
-
-    #root.dark-mode .table-hover tbody tr:hover {
-      background-color: rgba(255, 255, 255, 0.08);
+    .btn-theme {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
     }
   </style>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
 
-<!-- 🌗 Dark Mode Toggle Button -->
-<button class="btn btn-dark-toggle" id="dark-toggle-btn" onclick="toggleDarkMode()">
-  <i class="bi bi-moon-stars-fill"></i>
-</button>
+<!-- 🎨 Theme Switch Button -->
+<div class="dropdown btn-theme">
+  <button class="btn btn-light dropdown-toggle" type="button" id="themeDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    🎨 Switch Theme
+  </button>
+  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="themeDropdown">
+    <a class="dropdown-item" href="#" onclick="switchTheme('light')">☀️ Light</a>
+    <a class="dropdown-item" href="#" onclick="switchTheme('dark')">🌙 Midnight</a>
+    <a class="dropdown-item" href="#" onclick="switchTheme('hacker')">💻 Hacker</a>
+    <a class="dropdown-item" href="#" onclick="switchTheme('blossom')">🌸 Blossom</a>
+  </div>
+</div>
 
-<!-- 🔗 Header -->
+<!-- Toast -->
+<div class="toast-msg" id="toast-msg">Theme changed</div>
+
+<!-- Header -->
 <div id="header-placeholder"></div>
 
-<!-- ✨ Content -->
-<main class="flex-fill overlay-content">
-  <section class="container" data-aos="fade-up">
-    <div class="text-center">
-      <h2 class="mb-4">Alumni Connect</h2>
+<!-- Main Content -->
+<main class="flex-fill p-4">
+  <section class="container">
+    <div class="text-center mb-4">
+      <h2>Alumni Connect</h2>
       <p class="lead">Meet our proud alumni who are thriving in their careers and still supporting NSA in spirit.</p>
     </div>
 
-    <!-- 🔍 Search -->
-    <div class="search-box">
-      <input type="text" id="search-input" class="form-control" placeholder="Search alumni by name, department, or organization...">
-    </div>
+    <input type="text" id="search-input" class="form-control mb-3" placeholder="Search alumni..." />
 
-    <!-- 🧑‍🎓 Alumni Table -->
     <div class="table-responsive">
       <table class="table table-striped table-hover">
         <thead class="thead-custom">
@@ -144,124 +129,118 @@
       </table>
     </div>
 
-    <!-- 📄 Pagination -->
-    <nav aria-label="Alumni pagination">
+    <!-- Pagination -->
+    <nav aria-label="Page navigation">
       <ul class="pagination justify-content-center" id="pagination-container"></ul>
     </nav>
-
-    <div class="mt-4 text-center">
-      <p>If you're an alumnus and want to be listed here, reach out via the <a href="connect.html">Connect</a> page.</p>
-    </div>
   </section>
 </main>
 
-<!-- 🔚 Footer -->
-<div id="footer-placeholder" class="position-relative z-10"></div>
+<!-- Footer -->
+<div id="footer-placeholder"></div>
 
-<!-- 🧠 Scripts -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  let itemsPerPage = 5;
-  let currentPage = 1;
-  let alumniData = [];
-  let filteredData = [];
+let currentPage = 1;
+let itemsPerPage = 5;
+let alumniData = [];
+let filteredData = [];
 
-  async function fetchAlumniData() {
-    const res = await fetch('data/alumni_data.json');
-    alumniData = await res.json();
-    filteredData = alumniData;
-    renderTable();
-    renderPagination();
-  }
+async function fetchAlumniData() {
+  const res = await fetch('data/alumni_data.json');
+  alumniData = await res.json();
+  filteredData = alumniData;
+  renderTable();
+  renderPagination();
+}
 
-  function renderTable() {
-    const tbody = document.getElementById("alumni-table-body");
-    tbody.innerHTML = "";
-    const start = (currentPage - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
+function highlight(text, query) {
+  if (!query) return text;
+  return text.replace(new RegExp(`(${query})`, 'gi'), '<span class="highlight">$1</span>');
+}
 
-    filteredData.slice(start, end).forEach(alum => {
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>${alum.name}</td>
-        <td>${alum.department}</td>
-        <td>${alum.batch}</td>
-        <td>${alum.organization}</td>
-        <td><a href="${alum.contact}" target="_blank">${alum.contactType}</a></td>
-      `;
-      tbody.appendChild(tr);
-    });
-  }
+function renderTable() {
+  const tbody = document.getElementById("alumni-table-body");
+  const query = document.getElementById("search-input").value.toLowerCase();
+  tbody.innerHTML = "";
+  const start = (currentPage - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
 
-  function renderPagination() {
-    const pagination = document.getElementById("pagination-container");
-    pagination.innerHTML = "";
-    const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+  filteredData.slice(start, end).forEach(alum => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${highlight(alum.name, query)}</td>
+      <td>${highlight(alum.department, query)}</td>
+      <td>${highlight(alum.batch, query)}</td>
+      <td>${highlight(alum.organization, query)}</td>
+      <td><a href="${alum.contact}" target="_blank">${alum.contactType}</a></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
 
-    const createPageItem = (page, label = page, isActive = false, isDisabled = false) => {
-      const li = document.createElement("li");
-      li.className = `page-item${isActive ? ' active' : ''}${isDisabled ? ' disabled' : ''}`;
-      const a = document.createElement("a");
-      a.className = "page-link";
-      a.href = "#";
-      a.innerText = label;
-      a.onclick = (e) => {
-        e.preventDefault();
-        if (!isDisabled) {
-          currentPage = page;
-          renderTable();
-          renderPagination();
-        }
-      };
-      li.appendChild(a);
-      return li;
+function renderPagination() {
+  const container = document.getElementById("pagination-container");
+  container.innerHTML = "";
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+
+  const createPageItem = (label, page, disabled = false, active = false) => {
+    const li = document.createElement("li");
+    li.className = `page-item ${active ? "active" : ""} ${disabled ? "disabled" : ""}`;
+    li.innerHTML = `<a class="page-link" href="#">${label}</a>`;
+    li.onclick = (e) => {
+      e.preventDefault();
+      if (!disabled && currentPage !== page) {
+        currentPage = page;
+        renderTable();
+        renderPagination();
+      }
     };
+    return li;
+  };
 
-    pagination.appendChild(createPageItem(currentPage - 1, "Previous", false, currentPage === 1));
-    for (let i = 1; i <= totalPages; i++) {
-      pagination.appendChild(createPageItem(i, i, currentPage === i));
-    }
-    pagination.appendChild(createPageItem(currentPage + 1, "Next", false, currentPage === totalPages));
+  container.appendChild(createPageItem("Previous", currentPage - 1, currentPage === 1));
+
+  for (let i = 1; i <= totalPages; i++) {
+    container.appendChild(createPageItem(i, i, false, currentPage === i));
   }
 
-  // 🔍 Search functionality
-  document.getElementById('search-input').addEventListener('input', function (e) {
-    const query = e.target.value.toLowerCase();
-    filteredData = alumniData.filter(alum =>
-      alum.name.toLowerCase().includes(query) ||
-      alum.department.toLowerCase().includes(query) ||
-      alum.organization.toLowerCase().includes(query)
-    );
-    currentPage = 1;
-    renderTable();
-    renderPagination();
-  });
+  container.appendChild(createPageItem("Next", currentPage + 1, currentPage === totalPages));
+}
 
-  // 🌗 Dark mode toggle
-  function toggleDarkMode() {
-    const root = document.getElementById("root");
-    root.classList.toggle('dark-mode');
+document.getElementById("search-input").addEventListener("input", () => {
+  const query = document.getElementById("search-input").value.toLowerCase();
+  filteredData = alumniData.filter(a =>
+    a.name.toLowerCase().includes(query) ||
+    a.department.toLowerCase().includes(query) ||
+    a.organization.toLowerCase().includes(query)
+  );
+  currentPage = 1;
+  renderTable();
+  renderPagination();
+});
 
-    const icon = document.querySelector("#dark-toggle-btn i");
-    if (root.classList.contains('dark-mode')) {
-      icon.classList.remove("bi-moon-stars-fill");
-      icon.classList.add("bi-sun-fill");
-    } else {
-      icon.classList.remove("bi-sun-fill");
-      icon.classList.add("bi-moon-stars-fill");
-    }
-  }
+function switchTheme(theme) {
+  const root = document.getElementById("root");
+  root.className = "";
+  if (theme === "dark") root.classList.add("dark-mode");
+  if (theme === "hacker") root.classList.add("hacker-mode");
+  if (theme === "blossom") root.classList.add("blossom-mode");
 
-  // Initialize
-  $(function () {
-    $("#header-placeholder").load("header.html");
-    $("#footer-placeholder").load("footer.html");
-  });
+  const toast = document.getElementById("toast-msg");
+  toast.innerText = `Theme changed to ${theme}`;
+  toast.style.display = "block";
+  setTimeout(() => (toast.style.display = "none"), 2000);
+}
 
-  AOS.init();
-  fetchAlumniData();
+$(function () {
+  $("#header-placeholder").load("header.html");
+  $("#footer-placeholder").load("footer.html");
+});
+
+fetchAlumniData();
 </script>
 </body>
 </html>
