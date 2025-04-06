@@ -63,7 +63,237 @@
     "organization": "Senior Resource Planning Analyst @ Manulife",
     "contact": "https://www.linkedin.com/in/sakar-nepal-bb0329109/",
     "contactType": "LinkedIn"
+  },
+  {
+    "name": "Dipesh Giri",
+    "department": "Doctorate - Mechanical Engineering",
+    "batch": "Spring 2020",
+    "organization": "",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Naresh Adhikari",
+    "department": "Doctorate - Computer Science",
+    "batch": "Spring 2020",
+    "organization": "",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Anish Niroula",
+    "department": "Graduate - MBA",
+    "batch": "Spring 2020",
+    "organization": "",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Milan Sharma",
+    "department": "Graduate - Poultry Science",
+    "batch": "Spring 2020",
+    "organization": "",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Kushal Acharya",
+    "department": "Undergraduate - Civil Engineering",
+    "batch": "Spring 2020",
+    "organization": "",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Abinash Subedi",
+    "department": "Undergraduate - Civil Engineering",
+    "batch": "Spring 2020",
+    "organization": "",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Santosh Dhakal",
+    "department": "Undergraduate - Civil Engineering",
+    "batch": "Spring 2020",
+    "organization": "",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Sweta Poudel",
+    "department": "Undergraduate - Computer Science/Software/IT",
+    "batch": "Spring 2020",
+    "organization": "",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Gautam K.C",
+    "department": "Undergraduate - Computer Science/Software/IT",
+    "batch": "Spring 2020",
+    "organization": "",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Dhiraj Jung Basnyat",
+    "department": "Undergraduate - Computer Science/Software/IT",
+    "batch": "Spring 2020",
+    "organization": "",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Rupendra G.C",
+    "department": "Undergraduate - Computer Science/Software/IT",
+    "batch": "Spring 2020",
+    "organization": "",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Aashma Dhakal",
+    "department": "Undergraduate - Computer Science/Software/IT",
+    "batch": "Spring 2020",
+    "organization": "",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Sanjay Neupane",
+    "department": "Undergraduate - Computer Science/Software/IT",
+    "batch": "Spring 2020",
+    "organization": "",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Rajan Khadka",
+    "department": "Undergraduate - Computer Science/Software/IT",
+    "batch": "Spring 2020",
+    "organization": "",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Nischal Chaudhary",
+    "department": "Undergraduate - Business",
+    "batch": "Spring 2020",
+    "organization": "",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Milan Poudel",
+    "department": "Undergraduate - Business",
+    "batch": "Spring 2020",
+    "organization": "",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Bikram Bista",
+    "department": "Undergraduate - Chemical Engineering",
+    "batch": "Spring 2020",
+    "organization": "",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Kamana Lohani",
+    "department": "Undergraduate - Bio-Med",
+    "batch": "Spring 2020",
+    "organization": "",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Preety Gurung",
+    "department": "Undergraduate - Mathematics",
+    "batch": "Spring 2020",
+    "organization": "",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Parshu Bhusal",
+    "department": "Undergraduate - Mechanical Engineering",
+    "batch": "Fall 2019",
+    "organization": "Project Manager @ PACCAR",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Bimal Banjade",
+    "department": "Undergraduate - Industrial Engineering",
+    "batch": "Spring 2020",
+    "organization": "Senior Quality Engineer @ TKE",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Deepak Chapagain",
+    "department": "Undergraduate - Computer Engineering",
+    "batch": "Spring 2019",
+    "organization": "Java Developer @ Infosys",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Sagar Giri",
+    "department": "Undergraduate - Industrial Engineering",
+    "batch": "Spring 2020",
+    "organization": "Quality Engineer @ Milwaukee",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Suraj Neupane",
+    "department": "Undergraduate - BioMedical Engineering",
+    "batch": "Spring 2019",
+    "organization": "Principal Quality Engineer @ Milwaukee",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Swechchha Tamand",
+    "department": "Undergraduate - Biological Science",
+    "batch": "Spring 2019",
+    "organization": "RN",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Aman Gyawali",
+    "department": "Undergraduate - Computer Science",
+    "batch": "Fall 2020",
+    "organization": "AEM Developer @ Abercrombie and Fitch",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Amit Sharma Paudyal",
+    "department": "Undergraduate - Computer Science",
+    "batch": "Fall 2020",
+    "organization": "AEM Developer @ Toyota",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Abinash Neupane",
+    "department": "Undergraduate - Computer Science",
+    "batch": "Fall 2020",
+    "organization": "AEM Developer @ T-Mobile",
+    "contact": "",
+    "contactType": ""
+  },
+  {
+    "name": "Sunny Gurung",
+    "department": "Undergraduate - Computer Science",
+    "batch": "Fall 2020",
+    "organization": "Java Developer @ Infosys",
+    "contact": "",
+    "contactType": ""
   }
-  
-
 ]
