@@ -202,14 +202,43 @@ function renderPagination() {
     return li;
   };
 
+  const addEllipsis = () => {
+    const li = document.createElement("li");
+    li.className = "page-item disabled";
+    li.innerHTML = `<span class="page-link">...</span>`;
+    return li;
+  };
+
   container.appendChild(createPageItem("Previous", currentPage - 1, currentPage === 1));
 
-  for (let i = 1; i <= totalPages; i++) {
-    container.appendChild(createPageItem(i, i, false, currentPage === i));
+  if (totalPages <= 7) {
+    for (let i = 1; i <= totalPages; i++) {
+      container.appendChild(createPageItem(i, i, false, currentPage === i));
+    }
+  } else {
+    // First page
+    container.appendChild(createPageItem(1, 1, false, currentPage === 1));
+
+    // Left ellipsis
+    if (currentPage > 4) container.appendChild(addEllipsis());
+
+    // Middle pages (current ±2)
+    for (let i = currentPage - 2; i <= currentPage + 2; i++) {
+      if (i > 1 && i < totalPages) {
+        container.appendChild(createPageItem(i, i, false, currentPage === i));
+      }
+    }
+
+    // Right ellipsis
+    if (currentPage < totalPages - 3) container.appendChild(addEllipsis());
+
+    // Last page
+    container.appendChild(createPageItem(totalPages, totalPages, false, currentPage === totalPages));
   }
 
   container.appendChild(createPageItem("Next", currentPage + 1, currentPage === totalPages));
 }
+
 
 document.getElementById("search-input").addEventListener("input", () => {
   const query = document.getElementById("search-input").value.toLowerCase();
