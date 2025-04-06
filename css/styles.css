@@ -1,0 +1,37 @@
+.footer {
+    background-color: maroon;
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+  
+  .footer a.highlighted-name {
+    color: #FFD700 !important; /* Rich gold */
+    font-weight: 600;
+    position: relative;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .footer a.highlighted-name::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #FFD700;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .footer a.highlighted-name:hover::after {
+    transform: scaleX(1);
+  }
+  
+  
+  
+  .highlighted-name:hover {
+    color: #ffd700;
+  }
+  
