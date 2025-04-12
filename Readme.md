@@ -1,4 +1,3 @@
-
 # Nepalese Student Association (NSA) Website @ MSU
 
 Welcome to the official website source code for the **Nepalese Student Association at Mississippi State University**. This website serves as a portal for current students, alumni, and newcomers to stay informed, engaged, and connected with NSA activities and resources.
@@ -9,7 +8,7 @@ Welcome to the official website source code for the **Nepalese Student Associati
 
 | Section | Description |
 |--------|-------------|
-| `index.html` | **Homepage** featuring carousel of NSA images, animated welcome text, "About NSA" section, dynamic "Current Team" area loaded from a JSON file, and upcoming events with Google Calendar embed. |
+| `index.html` | **Homepage** featuring carousel of NSA images, animated welcome text, "About NSA" section, dynamic "Current Team" area loaded from a JSON file, and upcoming events with Google Calendar embed. Also includes a special popup alert system (NSA announcement alert). |
 | `connect.html` | **Contact page** with animated carousel background, blurred overlay content, links to Cowbell Connect, social media, and a Google Form for user queries. |
 | `alumni.html` | **Alumni page** showing a searchable and paginated table of past NSA members with department, batch, and contact info (loaded dynamically from `alumni_data.json`). |
 | `more-info.html` | **Welcome guide** with animated sections offering info on airports, housing, events, and how to stay connected for new/incoming students. |
@@ -55,6 +54,37 @@ NSA_WEBSITE_MAIN/
 
 ---
 
+## 🔔 NSA Alert Popup Feature (Smart Announcements)
+
+A dynamic popup shows special NSA alerts using Google Sheets + Apps Script backend.
+
+### 🧹 How It Works
+- A Google Sheet stores the current announcement, link, type (`info`, `warning`, `urgent`), and expiry date.
+- A deployed Apps Script Web App reads this data and returns a JSON response.
+- On `index.html`, a fetch request on page load pulls this data and displays a styled popup based on alert `type`.
+
+### 🎨 Type-Based Styling
+| Type | Visual | Style |
+|------|--------|-------|
+| `info` | ℹ️ | Teal border + light blue background |
+| `warning` | ⚠️ | Yellow border + light yellow background |
+| `urgent` | ❗ | Red border + light red background |
+
+### 🛠️ To Edit or Add an Alert
+1. Open the Google Sheet configured in the script
+2. Update row 2 with:
+   - `enabled = TRUE`
+   - `valid_till = MM-DD-YYYY` (as string)
+   - `message`, `type`, and optional `link`
+3. Save — the change will automatically reflect on the website
+
+### 🔐 Security Note
+- The Google Sheet **does NOT need to be public**.
+- The Apps Script runs as the owner's account and can access the sheet privately.
+- Only the deployed script URL is public and returns read-only JSON.
+
+---
+
 ## 🔧 What to Edit
 
 ### ✅ Navbar and Footer
@@ -65,19 +95,16 @@ NSA_WEBSITE_MAIN/
   ```
 - ✏️ To update site-wide navigation or footer links, edit these two files.
 
----
-
 ### ✅ Homepage (`index.html`)
 - ✨ Uses `Typed.js`, `AOS`, and CSS animations.
 - Team members section is designed to be **dynamically generated** from a JSON file (planned enhancement).
 - Carousel at the top rotates images from `/img/` folder.
+- NSA announcement popup is loaded on page load.
 
 #### Change Team Members:
 1. Update JSON file: `data/team-members-details.json` (to be created).
 2. Update team member images in `img/team-images/`.
 3. JavaScript will read and inject new entries dynamically (make sure the script is present).
-
----
 
 ### ✅ Alumni Page (`alumni.html`)
 - Loads data from: `data/alumni_data.json`
@@ -99,16 +126,12 @@ NSA_WEBSITE_MAIN/
   }
   ```
 
----
-
 ### ✅ More Info Page (`more-info.html`)
 - Helpful for newly admitted students
 - Includes:
   - Travel info with airport options
   - Popular apartments near MSU
   - Community group invitation
-
----
 
 ### ✅ Connect Page (`connect.html`)
 - Background image carousel + blurred overlay
@@ -130,7 +153,7 @@ NSA_WEBSITE_MAIN/
 
 ---
 
-## 🧠 Future Improvements
+## 🧐 Future Improvements
 - Fully dynamic `team-members` section powered by JSON
 - CMS-like admin panel for adding team, events, and alumni
 - Login for members
@@ -171,5 +194,4 @@ Visit the [Connect With Us](connect.html) page to reach out or submit updates.
 🎓 **Built by [Sushant Gautam](https://github.com/sushant097)**. Contact for any assistance.
 
 ---
-
 
