@@ -175,6 +175,19 @@ A dynamic popup shows special NSA alerts using Google Sheets + Apps Script backe
 
 ---
 
+
+## 📄 License
+
+This project is licensed under the **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License**.
+
+
+🔗 Full License Text: [View Here](https://creativecommons.org/licenses/by-nc-nd/4.0/)  
+
+---
+
+
+
+
 ## 🤝 Contributing
 
 If you're contributing:
