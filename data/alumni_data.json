@@ -1,5 +1,12 @@
 [
-
+  {
+    "name": "Sushant Gautam",
+    "department": "MS In Computer Science",
+    "batch": "Fall 2025",
+    "organization": "Amazon",
+    "contact": "https://www.linkedin.com/in/susan-gautam",
+    "contactType": "LinkedIn"
+  },
   {
     "name": "Suman Adhikari",
     "department": "MS In Computer Science",
